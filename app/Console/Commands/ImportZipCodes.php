@@ -50,6 +50,8 @@ class ImportZipCodes extends Command
                 continue;
             }
 
+            dump($index);
+
             if ($index == 1) {
                 $columnNames = explode('|',  Arr::get($line, 0));
                 continue;
