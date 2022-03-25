@@ -30,6 +30,13 @@ class ImportZipCodes extends Command
      */
     public function handle()
     {
+        $filePath = database_path('zip_codes/CPdescarga.txt');
+
+        if (!File::exists($filePath)) {
+            $this->error('File not found');
+            return;
+        }
+
         $contentTxt = new \RegexIterator(
             new \SplFileObject(database_path('zip_codes/CPdescarga.txt')), '/\r\n/',
             \RegexIterator::SPLIT
