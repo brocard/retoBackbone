@@ -45,11 +45,12 @@ class ImportZipCodes extends Command
 
         $columnNames = [];
         foreach ($contentTxt as $index => $line) {
-            $line = preg_replace('/\r\n/', '', $line);
 
             if ($index == 0) {
                 continue;
             }
+
+            $line = preg_replace('/\n|\r\n/', '', $line);
 
             if ($index == 1) {
                 $columnNames = explode('|',  $line);
