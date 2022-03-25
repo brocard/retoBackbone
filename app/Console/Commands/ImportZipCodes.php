@@ -32,36 +32,23 @@ class ImportZipCodes extends Command
     {
         $this->info('Importing zip codes...');
 
-        $filePath = database_path('zip_codes/CPdescarga.txt');
-
-
-        $this->error($filePath);
+        $filePath = storage_path('app/zip_codes/CPdescarga.txt');
 
         if (!File::exists($filePath)) {
-
-
-
             $this->error('File not found');
             return;
         }
 
-        $this->info(sprintf('File % founded...', basename($filePath)));
-
         $contentTxt = new \RegexIterator(
-            new \SplFileObject(database_path('zip_codes/CPdescarga.txt')), '/\r\n/',
+            new \SplFileObject($filePath), '/\r\n/',
             \RegexIterator::SPLIT
         );
 
         $columnNames = [];
         foreach ($contentTxt as $index => $line) {
-
-            dump($index);
-
             if ($index == 0) {
                 continue;
             }
-
-            dump($index);
 
             if ($index == 1) {
                 $columnNames = explode('|',  Arr::get($line, 0));
@@ -71,8 +58,6 @@ class ImportZipCodes extends Command
             $zipCodeValues = $this->filterOrSanitizeValues($line);
 
             $lineItem = array_combine($columnNames, $zipCodeValues);
-
-            dd($lineItem);
 
             try {
                 ZipCode::create($lineItem);
