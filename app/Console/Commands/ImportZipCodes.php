@@ -30,6 +30,8 @@ class ImportZipCodes extends Command
      */
     public function handle()
     {
+        $this->info('Importing zip codes...');
+
         $filePath = database_path('zip_codes/CPdescarga.txt');
 
         if (!File::exists($filePath)) {
