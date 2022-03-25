@@ -32,7 +32,7 @@ class ImportZipCodes extends Command
     {
         $this->info('Importing zip codes...');
 
-        $filePath = storage_path('app/zip_codes/CPdescarga.txt');
+        $filePath = storage_path('app/public/zip_codes/CPdescarga.txt');
 
         if (!File::exists($filePath)) {
             $this->error('File not found');

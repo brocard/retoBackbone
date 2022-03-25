@@ -10,14 +10,13 @@ class ZipCodesController extends Controller
 {
     public function __invoke($zipCode)
     {
-
         $query = ZipCode::query();
 
         $zipCodeCollection = $query->where('d_codigo', $zipCode)->get();
 
         if ($zipCodeCollection->isEmpty()) {
             return response()->json([
-                'message' => 'No se encontraron resultados',
+                'message' => 'No se encontraron resultados...',
             ]);
         }
 
