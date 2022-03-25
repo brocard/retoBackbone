@@ -44,8 +44,6 @@ class ImportZipCodes extends Command
             \RegexIterator::SPLIT
         );
 
-        dd($contentTxt);
-
         $columnNames = [];
         foreach ($contentTxt as $index => $line) {
             if ($index == 0) {
@@ -60,6 +58,8 @@ class ImportZipCodes extends Command
             $zipCodeValues = $this->filterOrSanitizeValues($line);
 
             $lineItem = array_combine($columnNames, $zipCodeValues);
+
+            dd($lineItem);
 
             try {
                 ZipCode::create($lineItem);
