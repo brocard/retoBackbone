@@ -45,21 +45,18 @@ class ImportZipCodes extends Command
 
         $columnNames = [];
         foreach ($contentTxt as $index => $line) {
+            $line = preg_replace('/\r\n/', '', $line);
 
             if ($index == 0) {
                 continue;
             }
 
-            $this->line('Processing line: ' . $index);
-
             if ($index == 1) {
-                $columnNames = explode('|',  Arr::get($line, 0));
+                $columnNames = explode('|',  $line);
                 continue;
             }
 
             $zipCodeValues = $this->filterOrSanitizeValues($line);
-
-            dd($zipCodeValues, $line);
 
             $lineItem = array_combine($columnNames, $zipCodeValues);
 
@@ -73,7 +70,7 @@ class ImportZipCodes extends Command
 
     protected function filterOrSanitizeValues($line)
     {
-        $arr = explode('|',  Arr::get($line, 0));
+        $arr = explode('|',  preg_replace('/\r\n/', '', $line));
 
         $filtered = [];
         foreach ($arr as $key => $value) {
