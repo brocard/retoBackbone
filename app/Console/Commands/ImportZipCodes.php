@@ -44,6 +44,8 @@ class ImportZipCodes extends Command
             \RegexIterator::SPLIT
         );
 
+        dd($contentTxt);
+
         $columnNames = [];
         foreach ($contentTxt as $index => $line) {
             if ($index == 0) {
