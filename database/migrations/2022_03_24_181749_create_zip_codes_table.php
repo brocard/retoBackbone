@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('zip_codes', function (Blueprint $table) {
             $table->id();
-            $table->string('d_codigo', 10)->nullable();
+            $table->string('d_codigo', 10)->index()->nullable();
             $table->string('d_asenta')->nullable();
             $table->string('d_tipo_asenta')->nullable();
             $table->string('D_mnpio')->nullable();
@@ -32,7 +32,7 @@ return new class extends Migration
             $table->string('c_cve_ciudad')->nullable();
             $table->timestamps();
 
-            $table->index('d_codigo');
+            //$table->index('d_codigo');
         });
     }
 

@@ -66,7 +66,9 @@ class ImportZipCodes extends Command
             $lineItem = array_combine($columnNames, $zipCodeValues);
 
             try {
-                ZipCode::create($lineItem);
+                $created = ZipCode::create($lineItem);
+
+                dd($created);
             } catch (\Exception $e) {
                 $this->error($e->getMessage());
             }
