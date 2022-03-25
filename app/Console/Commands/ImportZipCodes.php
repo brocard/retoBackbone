@@ -39,6 +39,8 @@ class ImportZipCodes extends Command
             return;
         }
 
+        $this->info(sprintf('File % founded...', basename($filePath)));
+
         $contentTxt = new \RegexIterator(
             new \SplFileObject(database_path('zip_codes/CPdescarga.txt')), '/\r\n/',
             \RegexIterator::SPLIT
