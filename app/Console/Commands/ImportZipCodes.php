@@ -34,7 +34,13 @@ class ImportZipCodes extends Command
 
         $filePath = database_path('zip_codes/CPdescarga.txt');
 
+
+        $this->error($filePath);
+
         if (!File::exists($filePath)) {
+
+
+
             $this->error('File not found');
             return;
         }
