@@ -59,6 +59,8 @@ class ImportZipCodes extends Command
 
             $zipCodeValues = $this->filterOrSanitizeValues($line);
 
+            dd($zipCodeValues);
+
             $lineItem = array_combine($columnNames, $zipCodeValues);
 
             try {
