@@ -37,7 +37,7 @@ class ZipCodeCollection extends ResourceCollection
             'federal_entity' => [
                 'key' => $zipCode->c_estado,
                 'name' => Str::upper($zipCode->d_estado),
-                'code' => '',
+                'code' => null,
             ],
             'settlements' => $settlements,
             'municipality' => [
