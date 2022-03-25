@@ -58,7 +58,10 @@ class ImportZipCodes extends Command
 
             $zipCodeValues = $this->filterOrSanitizeValues($line);
 
-            dump($columnNames, $zipCodeValues);
+            if (count($zipCodeValues) != count($columnNames)) {
+                $this->error('Invalid line: ' . $line);
+                continue;
+            }
 
             $lineItem = array_combine($columnNames, $zipCodeValues);
 
