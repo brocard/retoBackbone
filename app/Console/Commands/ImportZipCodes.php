@@ -41,15 +41,11 @@ class ImportZipCodes extends Command
 
         $this->line('File founded...');
 
-        $contentTxt = new \RegexIterator(
-            new \SplFileObject($filePath), '/\r\n/',
-            \RegexIterator::SPLIT
-        );
-
-        dd($contentTxt);
+        $contentTxt = new \SplFileObject($filePath);
 
         $columnNames = [];
         foreach ($contentTxt as $index => $line) {
+
             if ($index == 0) {
                 continue;
             }
