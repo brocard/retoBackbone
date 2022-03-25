@@ -46,6 +46,9 @@ class ImportZipCodes extends Command
 
         $columnNames = [];
         foreach ($contentTxt as $index => $line) {
+
+            dump($index);
+
             if ($index == 0) {
                 continue;
             }
