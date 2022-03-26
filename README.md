@@ -9,4 +9,6 @@ y se creo un tabla mediante una migracion con ellas, para asi poder insertar sin
 - [x] En la migración o tabla creada, se tomo/asigno la columna del codigo como índice, 
 estos en las tablas ayudan a indexar el contenido de diversas columnas para facilitar/mejorar la búsquedas de contenido de cuando se ejecutan.
 - [x] Para la exposicion de los datos se creo un resource `ZipCodeCollection` que contiene una colección de datos con la estructura solicitada. 
+- [x] Para este ejemplo las velocidades oscilan entre 50 y 60 ms, 
+la misma tabla incluso con millones de registros puede estar devolviendo el mismo perfomance
 
