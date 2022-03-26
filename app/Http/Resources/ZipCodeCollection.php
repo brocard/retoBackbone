@@ -22,7 +22,7 @@ class ZipCodeCollection extends ResourceCollection
         $settlements = $this->collection->map(function ($item) {
             return [
                 'key' => $item->id_asenta_cpcons,
-                'name' => Str::upper($item->d_asenta),
+                'name' => $this->replaceAccents(Str::upper($item->d_asenta)),
                 'zone_type' => Str::upper($item->d_zona),
                 'settlement_type' => [
                     'name' => $item->d_tipo_asenta
